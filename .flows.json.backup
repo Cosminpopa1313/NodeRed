@@ -11,15 +11,16 @@
         "type": "http in",
         "z": "f6f2187d.f17ca8",
         "name": "",
-        "url": "/test1",
+        "url": "/test1/:direction",
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 360,
+        "x": 390,
         "y": 300,
         "wires": [
             [
-                "2f7c187aecd5cbe5"
+                "2f7c187aecd5cbe5",
+                "2e8fbc73050cfe22"
             ]
         ]
     },
@@ -30,8 +31,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 710,
-        "y": 300,
+        "x": 770,
+        "y": 260,
         "wires": []
     },
     {
@@ -39,14 +40,14 @@
         "type": "function",
         "z": "f6f2187d.f17ca8",
         "name": "function 1",
-        "func": "msg.payload = \"CIAO\"\nreturn msg;",
+        "func": "msg.payload = \"CIAO\"+msg.req.params.direction;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 560,
-        "y": 300,
+        "x": 600,
+        "y": 260,
         "wires": [
             [
                 "4a442a2df5eec837"
@@ -54,30 +55,20 @@
         ]
     },
     {
-        "id": "2869a3ac65d7cc9d",
-        "type": "inject",
+        "id": "2e8fbc73050cfe22",
+        "type": "debug",
         "z": "f6f2187d.f17ca8",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 580,
-        "y": 160,
-        "wires": [
-            []
-        ]
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 360,
+        "wires": []
     }
 ]
